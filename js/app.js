@@ -25,6 +25,10 @@ class Citas {
     eliminarCita(id) {
         this.citas = this.citas.filter(cita => cita.id !== id)
     }
+
+    editarCita(citaAcutalizada) {
+        this.citas = this.citas.map(cita => cita.id === citaAcutalizada.id ? citaAcutalizada : cita);
+    }
 }
 
 class Interfaz {
@@ -104,6 +108,7 @@ class Interfaz {
             const btnEditar = document.createElement("BUTTON");
             btnEditar.classList.add("btn", "btn-editar");
             btnEditar.innerHTML = `Editar`;
+            btnEditar.onclick = () => cargarEdicion(cita);
 
             // agregar botones al divBotones
             divBotones.appendChild(btnEliminar);
@@ -174,8 +179,9 @@ function nuevaCita(e) {
     }
 
     if (editando) {
-        console.log("editando");
-
+        ui.imprimirAlerta("Se editó correctamente");
+        administrarCitas.editarCita({ ...citaObj })
+        formulario.querySelector('button[type="submit"]').textContent = "Registrar";
         editando = false;
     } else {
         // Generar un id único
@@ -206,4 +212,29 @@ function eliminarCita(id) {
     administrarCitas.eliminarCita(id);
     ui.imprimirAlerta("La cita se eliminó correctamente");
     ui.imprimirCita(administrarCitas);
+}
+
+function cargarEdicion(cita) {
+    const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
+    // llenar los inputs
+    mascotaInput.value = mascota;
+    propietarioInput.value = propietario;
+    telefonoInput.value = telefono;
+    fechaInput.value = fecha;
+    horaInput.value = hora;
+    sintomasInput.value = sintomas;
+
+    // llenar el objeto
+    citaObj.mascota = mascota;
+    citaObj.propietario = propietario;
+    citaObj.telefono = telefono;
+    citaObj.fecha = fecha;
+    citaObj.hora = hora;
+    citaObj.sintomas = sintomas;
+    citaObj.id = id;
+
+    // cambiar el texto del botón 
+    formulario.querySelector('button[type="submit"]').textContent = "Editar";
+
+    editando = true;
 }
