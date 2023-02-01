@@ -16,7 +16,7 @@
           <!-- FORMULARIO CITAS -->
           <div class="agregar-cita">
             <span class="formulario__titulo">Datos del paciente</span>
-            <form id="nueva-cita">
+            <form class="formulario__contenedor" id="nueva-cita">
               <!-- Mascota -->
               <div class="formulario__grupo">
                 <label class="formulario__label">Nombre Mascota:</label>
@@ -40,7 +40,7 @@
                     id="propietario"
                     name="propietario"
                     class="formulario__input"
-                    placeholder="Nombre del dueño de la mascota"
+                    placeholder="Nombre del dueño"
                   />
                 </div>
               </div>
@@ -92,14 +92,15 @@
                   <textarea
                     id="sintomas"
                     name="sintomas"
-                    class="formulario__input"
+                    class="formulario__input formulario__input-area"
+                    placeholder="Síntomas de la mascota"
                   ></textarea>
                 </div>
               </div>
               <!-- Fin Síntomas -->
               <!-- Botón enviar -->
               <div class="formulario__grupo formulario__grupo-btn-enviar">
-                <button type="submit" class="formulario__btn">Enviar</button>
+                <button type="submit" class="formulario__btn">Registrar</button>
               </div>
               <!-- Fin Botón enviar -->
             </form>
