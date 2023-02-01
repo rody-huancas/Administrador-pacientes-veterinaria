@@ -229,8 +229,23 @@ body {
   margin-top: 1rem;
   width: 100%;
   height: 450px;
-  background-color: var(--color-blanco);
+  /* background-color: var(--color-blanco); */
   overflow-y: scroll;
   border-radius: 0.4rem;
-  padding: 1rem;
+  padding-right: 1rem;
+}
+
+.pacientes__contenedor::-webkit-scrollbar {
+  width: 0.5rem; /** Tamaño Scroll en Vertical */
+  height: 0.5rem; /** Tamaño Scroll en Horizontal **/
+}
+
+.pacientes__contenedor::-webkit-scrollbar-thumb {
+  background: var(--color-edit); /** Color barra **/
+  border-radius: 0.25rem; /** Borde redondeado barra **/
+}
+
+.pacientes__contenedor::-webkit-scrollbar-track {
+  background: var(--color-fondo); /** Color fondo **/
+  border-radius: 0.25rem; /** Borde redondeado **/
 }
