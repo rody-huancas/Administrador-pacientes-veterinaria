@@ -249,3 +249,33 @@ body {
   background: var(--color-fondo); /** Color fondo **/
   border-radius: 0.25rem; /** Borde redondeado **/
 }
+
+@media (max-width: 935px) {
+  .main {
+    height: 150vh;
+  }
+  .container {
+    width: 90%;
+  }
+
+  .formulario {
+    flex-direction: column;
+  }
+
+  .formulario__label {
+    width: 30%;
+  }
+
+  .formulario__grupo-input {
+    width: 70%;
+  }
+
+  .agregar-cita,
+  .pacientes {
+    width: 100%;
+  }
+
+  .agregar-cita {
+    border-bottom: 0.1875rem solid var(--color-titulo);
+  }
+}
