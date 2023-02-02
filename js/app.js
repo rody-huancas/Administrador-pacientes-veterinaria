@@ -33,20 +33,23 @@ class Citas {
 
 class Interfaz {
     imprimirAlerta(mensaje, tipo) {
-        const divMensaje = document.createElement("DIV");
-        divMensaje.classList.add("div-alerta");
-        if (tipo === "error") {
-            divMensaje.classList.add("div-alerta-error");
-        } else {
-            divMensaje.classList.add("div-alerta-success");
+        const alertaError = document.querySelector(".div-alerta");
+        if (!alertaError) {
+            const divMensaje = document.createElement("DIV");
+            divMensaje.classList.add("div-alerta");
+            if (tipo === "error") {
+                divMensaje.classList.add("div-alerta-error");
+            } else {
+                divMensaje.classList.add("div-alerta-success");
+            }
+            divMensaje.textContent = mensaje;
+            // Agregar div al DOM
+            document.querySelector("#contenido").insertBefore(divMensaje, document.querySelector(".formulario"));
+            // Quitar mensaje de error después de 3s
+            setTimeout(() => {
+                divMensaje.remove();
+            }, 3000);
         }
-        divMensaje.textContent = mensaje;
-        // Agregar div al DOM
-        document.querySelector("#contenido").insertBefore(divMensaje, document.querySelector(".formulario"));
-        // Quitar mensaje de error después de 3s
-        setTimeout(() => {
-            divMensaje.remove();
-        }, 3000);
     }
 
     imprimirCita({ citas }) {
